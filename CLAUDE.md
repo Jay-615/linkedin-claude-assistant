@@ -91,6 +91,14 @@ who think they need all 400 tend to stall out and never see the payoff.
   user's private read on their own relationships. Treat it accordingly.
 - Markdown and CSV are the storage formats, on purpose. The user can open, edit,
   and understand every file this tool writes without any special software.
+- **When writing a CSV that already exists, read its schema from its own header —
+  never hardcode the documented column list.** Because the user can edit these
+  files by hand (which is a feature), a real file drifts from its documentation.
+  Writing an assumed schema over a drifted file silently drops columns, or raises
+  *after* `open(path,'w')` has already truncated it. Write to a temp file, verify
+  the row and column counts, then `os.replace`. Back up first if the file exists.
+  `config/connections.csv` is gitignored hand-entered judgment — there is no git
+  history to recover it from, and no way to regenerate it.
 
 ## When a user opens this project for the first time
 

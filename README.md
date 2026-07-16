@@ -22,24 +22,41 @@ and never runs on a schedule. You stay in the loop for every decision that matte
 
 ## The interesting part
 
-LinkedIn shows you a teaser and hides the good stuff. A search result for someone
-at your target company says:
+You can do all of this by hand. That's the point — it's just miserable.
+
+A search result for someone at your target company shows you a teaser:
 
 > **Felipe Marquez, Casey Lin** and 21 other mutual connections
 
-Take that at face value and your best path to a Director of Product is two people
-you barely know. Most people read that card and move on.
+Click through and LinkedIn will happily show you all 23. Fine. Now do that for the
+other 33 people who work there, and hold in your head which of the names on each
+screen are people you'd actually feel comfortable calling. That's 34 page visits,
+a scratch file, and a lot of copying and pasting — and somewhere around person 20
+you've lost the thread on person 3, because the answer you want isn't on any single
+screen. It's in the overlap between all of them.
 
-But one of those 21 hidden names might be your closest former colleague — the
-person who'd take your call today. The card doesn't just undersell the connection.
-**It points you at the wrong person.**
+This tool does that pass for you. One search per company, one drill-in for each
+person whose mutuals are truncated, every bridge cross-referenced against your own
+ratings of who you actually know, out the other end as a sorted table. About two
+minutes instead of an evening, and you get the full picture rather than the seven
+people you had patience for.
 
-So when a card truncates, this tool opens that person's shared-connections page and
-enumerates every bridge, then cross-references each one against your own ratings of
-how well you know them. It only drills the cards that actually hide something, which
-keeps a full company map cheap — one search, plus one drill per truncated card.
+### The part you'd never assemble by hand
 
-That's the whole idea. The rest is plumbing.
+Once that table exists, it answers a question you probably weren't asking:
+**which of your Medium contacts should you reconnect with first?**
+
+Your Mediums are the people you genuinely know but have drifted from — the ones
+where you'd want to catch up properly before asking for anything. Most people have
+far more Mediums than Highs, and no obvious way to rank them. They all feel equally
+worth a coffee, which means none of them get one.
+
+The table ranks them for you. Sort by reach and you find that Henrik — who you
+haven't spoken to in two years, who you'd never have thought of — bridges to nine
+people at the company you most want to work at.
+
+That's not a lookup result. That's a to-do list. One coffee turns a Medium into a
+High and lights up nine paths at once.
 
 ---
 

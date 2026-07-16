@@ -53,8 +53,12 @@ Print this preamble before doing any work:
 
    Bail.
 
-2. Parse the CSV using Python's `csv` module (via `Bash`). Keep the original column
-   order: `linkedin_url,name,headline,rating,last_interaction,notes`.
+2. Parse the CSV using Python's `csv` module (via `Bash`). **Take the column list
+   from the file's own header** (`csv.DictReader.fieldnames`) and write exactly
+   those columns back — don't hardcode the schema. The file may have gained a
+   column since it was created, and writing an assumed schema over it drops the
+   user's data. Only `rating` is yours to change; every other column passes
+   through untouched.
 
 3. Filter to rows where `rating` is empty, `"Unrated"`, or any whitespace variant.
    Count them.

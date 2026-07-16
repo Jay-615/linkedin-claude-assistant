@@ -230,26 +230,69 @@ For each scraped `{linkedin_url, name, headline}`:
 2. **If it's a new row:** add it with `rating=Unrated`, `last_interaction=""`,
    `notes=""`.
 
-3. Write the merged result to `config/connections.csv` using Python's `csv` module
-   via `Bash` — safer than hand-building the file, since names contain commas and
-   headlines contain quotes. Use this exact column order:
-   `linkedin_url,name,headline,rating,last_interaction,notes`. Quote with
-   `csv.QUOTE_MINIMAL`.
+3. Write the merged result using Python's `csv` module via `Bash` — safer than
+   hand-building the file, since names contain commas and headlines contain quotes.
+
+   **Read the schema from the file; never hardcode it.** If `connections.csv`
+   exists, its own header is the truth — take `fieldnames` from
+   `csv.DictReader.fieldnames` and write those columns back. Only fall back to the
+   default order below when creating the file from scratch:
+
+   ```
+   linkedin_url,name,headline,rating,last_interaction,notes
+   ```
+
+   This matters more than it looks. A real file drifts: a user adds a column in
+   Excel, or a future skill caches something extra. Hardcoding the documented
+   schema against a file that has since gained a column doesn't fail cleanly — it
+   silently drops that column, or raises **after** `open(path, 'w')` has already
+   truncated the file to a bare header. Ask how I know.
+
+   **Write to a temp file, verify, then swap.** Never write in place. The user's
+   ratings are hand-entered judgment that exists nowhere else, and
+   `config/connections.csv` is gitignored — there is no git history to recover
+   from. A failed write must leave the original untouched.
 
    ```bash
    python3 - <<'PY'
-   import csv, json, sys
-   rows = json.loads(sys.stdin.read())  # list of dicts
-   with open('config/connections.csv', 'w', newline='') as f:
-       w = csv.DictWriter(f, fieldnames=['linkedin_url','name','headline','rating','last_interaction','notes'])
-       w.writeheader()
-       for r in rows:
-           w.writerow(r)
+   import csv, json, sys, os
+
+   SRC = 'config/connections.csv'
+   DEFAULT = ['linkedin_url','name','headline','rating','last_interaction','notes']
+
+   fields = DEFAULT
+   if os.path.exists(SRC):
+       with open(SRC) as f:
+           fields = csv.DictReader(f).fieldnames or DEFAULT   # the file's own schema wins
+
+   rows = json.loads(sys.stdin.read())          # merged rows, dicts
+   rows.sort(key=lambda r: (r.get('name') or '').lower())
+
+   # Preserve any column this skill doesn't know about (don't drop what you didn't write).
+   for r in rows:
+       for k in fields:
+           r.setdefault(k, '')
+
+   tmp = SRC + '.tmp'
+   with open(tmp, 'w', newline='') as f:
+       w = csv.DictWriter(f, fieldnames=fields, quoting=csv.QUOTE_MINIMAL, extrasaction='ignore')
+       w.writeheader(); w.writerows(rows)
+
+   check = list(csv.DictReader(open(tmp)))       # verify before it goes near the real file
+   assert len(check) == len(rows), f'row count changed: {len(check)} != {len(rows)}'
+   assert all(len(r) == len(fields) for r in check), 'ragged row'
+   os.replace(tmp, SRC)                          # atomic
+   print(f'wrote {len(check)} rows, {len(fields)} columns')
    PY
    ```
 
-   Pipe the merged JSON into stdin. Sort rows by `name` ascending before writing —
-   it makes the CSV easier to scan by hand in a spreadsheet.
+   Pipe the merged JSON into stdin. Rows are sorted by `name` ascending — it makes
+   the CSV easier to scan by hand in a spreadsheet.
+
+4. **Back up before the first write of a session** if the file already exists:
+   `cp config/connections.csv config/connections.csv.bak-$(date +%Y%m%d-%H%M%S)`.
+   It's gitignored, so the backup stays local. Cheap insurance on the one file in
+   this repo that can't be regenerated.
 
 ---
 
