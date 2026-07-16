@@ -1,0 +1,14 @@
+# Your real config never leaves your machine.
+# Only the .example.* files are committed.
+config/*
+!config/README.md
+!config/*.example.*
+
+# Generated artifacts — fully local
+jobs/
+
+# OS / editor cruft
+.DS_Store
+.vscode/
+.obsidian/
+*.swp
