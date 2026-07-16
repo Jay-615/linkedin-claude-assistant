@@ -1,4 +1,4 @@
-# LinkedIn Job Search and Networking Finder
+# LinkedIn Claude Assistant
 
 Find the jobs, then find the person who can introduce you to them.
 
@@ -49,7 +49,7 @@ You need [Claude Code](https://claude.com/claude-code) and the **Claude in Chrom
 extension, connected and logged into LinkedIn. That's it — no Python, no npm, no
 build step. The skills are just markdown.
 
-**[⬇ Download the ZIP](https://github.com/Jay-615/linkedin-job-search-and-networking-finder/archive/refs/heads/main.zip)**
+**[⬇ Download the ZIP](https://github.com/Jay-615/linkedin-claude-assistant/archive/refs/heads/main.zip)**
 
 1. Download and unzip it anywhere — your Desktop is fine.
 2. Open the folder in Claude Code. (In the desktop app, just point it at the
@@ -62,8 +62,8 @@ love to work at — and takes about five minutes.
 Or clone it, if that's your thing:
 
 ```bash
-git clone https://github.com/Jay-615/linkedin-job-search-and-networking-finder.git
-cd linkedin-job-search-and-networking-finder
+git clone https://github.com/Jay-615/linkedin-claude-assistant.git
+cd linkedin-claude-assistant
 claude
 ```
 
@@ -161,13 +161,6 @@ from the skills for exactly one reason: when LinkedIn changes — and it will �
 one file to fix.
 
 ---
-
-## Related
-
-The bigger, messier project this was carved out of:
-[Job-Seeker](https://github.com/Jay-615/Job-Seeker) — adds multi-source scanning
-(Indeed, Dice, ATS APIs), weighted scoring, and tailored resume and cover-letter
-drafting.
 
 ## License
 

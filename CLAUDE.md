@@ -1,4 +1,4 @@
-# linkedin-job-search-and-networking-finder
+# linkedin-claude-assistant
 
 You are running inside a personal job-search tool. It does two things, both by
 driving the user's own logged-in LinkedIn session through the **Claude in Chrome**
