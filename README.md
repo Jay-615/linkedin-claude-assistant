@@ -52,11 +52,21 @@ far more Mediums than Highs, and no obvious way to rank them. They all feel equa
 worth a coffee, which means none of them get one.
 
 The table ranks them for you. Sort by reach and you find that Henrik — who you
-haven't spoken to in two years, who you'd never have thought of — bridges to nine
-people at the company you most want to work at.
+haven't spoken to in two years, who you'd never have thought of — is the bridge to
+three people at the company you most want to work at, one of them on the team
+you're targeting.
 
-That's not a lookup result. That's a to-do list. One coffee turns a Medium into a
-High and lights up nine paths at once.
+Three isn't dramatic. It's just specific, and specific is what you were missing.
+It turns "I should network more" into "I should email Henrik," which is a thing a
+person can actually do on a Tuesday. Catching up with him upgrades those three
+paths from *cold* to *warm* — and you'd never have picked him out of 400 contacts
+by memory.
+
+A caveat worth setting expectations on: your biggest bridges are often people you
+barely know. Reach and closeness aren't the same thing, and the tool will happily
+show you that the person connected to 25 people at your dream company is someone
+you can't call. That's still worth knowing — it's just not always the answer you
+were hoping for.
 
 ---
 
