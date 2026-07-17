@@ -5,12 +5,34 @@ description: First-run guided configuration. Checks the Claude in Chrome extensi
 
 # /setup — first-run configuration
 
-Get a brand-new user from "I just unzipped this folder" to "I can run a skill" in
-about five minutes. Two preflight checks, three questions, two files written.
+Get a brand-new user from "I just unzipped this folder" to "I know what this does
+and what to do next" in about five minutes. Two preflight checks, three questions,
+two files written, and a handoff that actually explains the tool.
 
 **Tone matters here.** The person running this was probably laid off recently and
 is not necessarily technical. Be warm, be brief, don't lecture, and don't make
 them feel like they're configuring software. No jargon in anything you print.
+
+**This is the only onboarding that happens.** Assume the user has not read the
+README and never will. If `/setup` doesn't tell them what this tool does for them,
+nothing else will — they'll finish configuration knowing about whichever command
+you happened to mention and never discover the rest. Both halves of the product
+get named here, or one of them may as well not exist.
+
+---
+
+## Say what this is before asking for anything
+
+Open with it. Two sentences, before the first question — the user just downloaded a
+folder from a friend and may not know what they've got:
+
+> This finds you two things: **jobs** worth applying to, and **the person who can
+> introduce you** to them. It reads your own LinkedIn through Chrome, saves
+> everything to your machine, and never applies or messages anyone on your behalf.
+>
+> Setup is three questions, about five minutes.
+
+Then go to Stage 0.
 
 ---
 
@@ -119,26 +141,54 @@ Set `status` to `Researching` and leave `contacts` and `notes` empty.
 
 ---
 
-## On completion
+## On completion — the handoff
 
-Confirm what you wrote, then give them **one** next step — not a menu:
+This is the most important thing `/setup` prints. It is the user's only briefing on
+what they now own. **Name every command. Say what each one gives them and what it
+costs in minutes.** Someone who finishes setup should be able to close the window,
+come back tomorrow, and still know what this thing does.
+
+Fill in their real answers, don't echo the example numbers:
 
 > You're set up. Two files written:
 >
-> - `config/criteria.md` — 3 roles, Seattle + US-remote, $150K floor
-> - `config/target_companies.csv` — 8 companies
+> - `config/criteria.md` — 4 roles, Portland metro + US-remote, $120K floor, contract and full-time
+> - `config/target_companies.csv` — 10 companies
 >
-> **Start here: `/build-connections`.** It pulls your LinkedIn connections into a
-> local file (~3–5 minutes for a typical network). Everything interesting depends
-> on that list existing.
+> **Here's what you can do now.**
 >
-> After that: `/rate-connections` to mark who you actually know well, then
-> `/map-company-connections <company>` to find who can introduce you.
+> **Find jobs — `/find-jobs`** *(~3 min, works right now)*
+> Searches LinkedIn for your roles, drops the ones that don't fit, and saves the
+> full job descriptions to `jobs/inbox/` as files on your Mac. Re-run it whenever;
+> it remembers what it already showed you and won't repeat itself.
 >
-> Your answers live in `config/` and never leave your machine — that folder is
-> gitignored.
+> **Find who can introduce you** *(the good part — three steps, ~20 min the first time)*
+>
+> 1. `/build-connections` *(~5 min)* — pulls your LinkedIn contacts into a file.
+> 2. `/rate-connections` — you mark who you actually know well. **Don't skip this.**
+>    Everything below ranks by how well you know the person making the intro, and
+>    that's the one thing I can't work out on my own. Fifty is plenty to start; you
+>    don't need to do all of them.
+> 3. `/map-company-connections <company>` *(~2 min each)* — for a company you care
+>    about, who you're connected to there and which of your contacts can actually
+>    introduce you, ranked by how well you know them.
+>
+> **I'd start with `/find-jobs`** — three minutes, and you'll see real postings come
+> back, which tells you everything's wired up. Then do the network chain when you've
+> got twenty minutes.
+>
+> Everything stays on your machine. I never apply to anything and never message
+> anyone — I stop at "here's the job, and here's who can introduce you."
 
-Resist listing all five skills here. A new user needs one door, not five.
+Two things to get right:
+
+- **Lead with `/find-jobs`.** It has no prerequisites and pays off in three minutes.
+  The network chain is the better product but costs 20 minutes across three commands
+  before the user sees anything. Sending someone down the slow path first is how you
+  lose them before the good part.
+- **Say the rating step is skippable-but-don't.** Users skip it, then conclude the
+  tool is useless because every path reads "Unrated." Naming the fifty-is-enough
+  number is what keeps them from stalling on a 400-row list.
 
 ---
 

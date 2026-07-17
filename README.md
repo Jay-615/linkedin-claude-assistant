@@ -18,6 +18,27 @@ and never runs on a schedule. You stay in the loop for every decision that matte
 
 **[→ See what the output actually looks like](docs/sample-output.md)**
 
+## The five commands
+
+```
+/setup                              three questions, ~5 min. Run once.
+
+/find-jobs                          ~3 min. No prerequisites — run it right after
+                                    setup. Searches LinkedIn for your roles, saves
+                                    the full job descriptions to jobs/inbox/.
+                                    Won't show you the same posting twice.
+
+/build-connections                  ~5 min. Pulls your LinkedIn contacts into a file.
+/rate-connections                   You mark who you actually know well. Don't skip.
+/map-company-connections <company>  ~2 min. Who can introduce you at that company,
+                                    ranked by how well you know them.
+```
+
+The last three are a chain — each one needs the one above it. `/find-jobs` stands
+alone; start there, since you'll see real results in three minutes.
+
+[Install below.](#install) Full detail in [Using it](#using-it).
+
 ---
 
 ## The interesting part
@@ -98,18 +119,30 @@ claude
 
 ## Using it
 
-Run these in order the first time. The order matters — see below.
+`/setup` first — three questions, about five minutes. Then there are two separate
+things you can do, and only one of them has prerequisites.
+
+**Jobs — standalone, works immediately**
 
 | Command | What it does | Time |
 |---|---|---|
-| `/setup` | Three questions. Writes your config. | ~5 min |
-| `/build-connections` | Pulls your LinkedIn connections into a local CSV. | ~3–5 min |
-| `/rate-connections` | You mark who you actually know well. **Don't skip this.** | as long as you like |
-| `/map-company-connections <company>` | The main event: who can introduce you, ranked. | ~2 min per company |
-| `/find-jobs` | Searches LinkedIn, saves matching job descriptions. | ~3 min |
+| `/find-jobs` | Searches LinkedIn for your roles, drops the misfits, saves full job descriptions to `jobs/inbox/`. Remembers what it's already shown you. | ~3 min |
 
-After the first run, it's just `/find-jobs` and `/map-company-connections` whenever
-you feel like it.
+**Warm intros — a chain; each step needs the one before it**
+
+| Command | What it does | Time |
+|---|---|---|
+| `/build-connections` | Pulls your LinkedIn connections into a local CSV. | ~5 min |
+| `/rate-connections` | You mark who you actually know well. **Don't skip this.** | as long as you like |
+| `/map-company-connections <company>` | The main event: who can introduce you, ranked by how well you know them. | ~2 min per company |
+
+**Start with `/find-jobs`.** It needs nothing but setup and gives you real postings
+in three minutes, which also proves your Chrome and LinkedIn connection works. Do
+the network chain when you've got twenty minutes — it's the better half, but it
+costs three commands before it pays off.
+
+After that, it's just `/find-jobs` and `/map-company-connections` whenever you feel
+like it.
 
 ### Why the rating step is not optional
 

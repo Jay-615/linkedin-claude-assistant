@@ -122,7 +122,33 @@ who think they need all 400 tend to stall out and never see the payoff.
   `config/connections.csv` is gitignored hand-entered judgment — there is no git
   history to recover it from, and no way to regenerate it.
 
-## When a user opens this project for the first time
+## When a user opens this project
 
-Check whether `config/criteria.md` and `config/target_companies.csv` exist. If
-either is missing, point them at `/setup` before anything else.
+**Assume they have not read the README and never will.** They got a link from a
+friend. Whatever you tell them is what they know about this tool.
+
+Check whether `config/criteria.md` and `config/target_companies.csv` exist.
+
+**If either is missing** → they're new. Point them at `/setup` and say in one line
+what the tool does: finds jobs worth applying to, and finds the person who can
+introduce them. Don't make them ask.
+
+**If both exist** → they've set up before and may have been away for weeks. If they
+seem unsure what to do, or ask anything shaped like "what can this do" or "what do I
+run," give them the full menu — not one suggestion:
+
+- `/find-jobs` — searches LinkedIn, saves matching job descriptions to `jobs/inbox/`
+  (~3 min, no prerequisites, safe to re-run — it won't repeat postings)
+- `/build-connections` → `/rate-connections` → `/map-company-connections <company>` —
+  the network chain: who can actually introduce them, ranked by how well they know
+  the bridge
+
+Then look at what state they're actually in and say something useful about it. Count
+the Unrated rows in `connections.csv` — if most of the file is unrated, that's why
+`/map-company-connections` will disappoint them, and it's worth saying so directly
+rather than letting them find out. Check `jobs/inbox/` — if there are unread
+postings sitting there, mention it.
+
+The failure mode to design against is a user who finishes `/setup`, doesn't know
+`/find-jobs` exists, and concludes the tool is a connections scraper. Half this
+product is invisible unless you name it.
