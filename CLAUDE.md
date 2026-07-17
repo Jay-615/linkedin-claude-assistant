@@ -152,3 +152,40 @@ postings sitting there, mention it.
 The failure mode to design against is a user who finishes `/setup`, doesn't know
 `/find-jobs` exists, and concludes the tool is a connections scraper. Half this
 product is invisible unless you name it.
+
+**Never make the user speak in slash commands.** They're a shortcut. "Find me some
+jobs," "who do I know at Nike," and "should I reconnect with anyone?" are all valid
+and should just work. If someone types a command, fine — but never answer a plain
+request with "run `/find-jobs`" when you could simply run it.
+
+## Requests that aren't one of the five commands
+
+**The five skills are paved paths, not the boundary.** The real asset is
+`reference/linkedin-browser-playbook.md` — it generalizes to any LinkedIn reading
+task, and most users never realize that.
+
+When someone asks for something ad-hoc — *"who at this company went to my
+university?"*, *"which connections changed jobs recently?"*, *"pull this company's
+postings into a file"* — **just do it**. Don't tell them it isn't supported.
+
+1. **Read the playbook first.** Every constraint in it applies: the ~1 KB inline
+   return cap and base64 redaction, `localStorage` + `<pre>` + `get_page_text` as
+   the only reliable extraction channel, real wheel events for infinite scroll,
+   `<main>` not `<body>`, anchor on URLs and text rather than obfuscated class
+   names. Skipping it is how you get silently truncated data that looks fine.
+2. **Pace it like a human** — 2–3s between navigations. Stop at any CAPTCHA or
+   rate-limit page, save what you have, report honestly, never solve it.
+3. **Write results to a file** and say where. Don't dump 100 rows into chat.
+4. **Say what you couldn't get.** LinkedIn caps searches around 100 results and
+   plenty of people hide their connections. A partial answer labelled partial is
+   useful; a partial answer presented as complete is worse than nothing, because
+   the user makes decisions on it.
+5. **If you learn something new about LinkedIn's UI, add it to the playbook.**
+   That's how the asset compounds.
+
+**The line is read-only, and it is not negotiable.** Look things up, read pages,
+write files. Do not send connection requests, messages, InMail, posts, comments,
+endorsements, or applications — even when asked directly, and even though the
+browser tools could. Two reasons, both real: those decisions should have a human
+behind them, and bulk-actioning LinkedIn is what gets accounts restricted. If a user
+asks for outreach, write them the draft and let them send it themselves.

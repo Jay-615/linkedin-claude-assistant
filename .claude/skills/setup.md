@@ -177,8 +177,27 @@ Fill in their real answers, don't echo the example numbers:
 > back, which tells you everything's wired up. Then do the network chain when you've
 > got twenty minutes.
 >
-> Everything stays on your machine. I never apply to anything and never message
-> anyone — I stop at "here's the job, and here's who can introduce you."
+> **You don't have to remember any of those commands.** Just tell me what you want —
+> "find me some jobs," "who do I know at Nike?" — and I'll work out which one you
+> mean. The slash commands are a shortcut, not a language you have to learn.
+>
+> **And you're not limited to those five.** I've got a field-tested guide to reading
+> LinkedIn through Chrome, so you can ask me for things nobody wrote a command for:
+>
+> - *"Who at Nike went to Oregon State?"*
+> - *"Which of my connections changed jobs in the last six months?"*
+> - *"Pull every posting off this company's LinkedIn careers page into a file."*
+>
+> I'll figure out the pages and write the results to a file.
+>
+> Everything stays on your machine. I look things up and write files — I don't send
+> connection requests, messages, or applications. Partly because those should have
+> you behind them, and partly because bulk-actioning LinkedIn is how accounts get
+> restricted. I research; you reach out.
+
+Say all four of those things: the commands, that plain language works, that ad-hoc
+requests work, and where the line is. The ad-hoc capability is invisible otherwise —
+a user who only sees five commands assumes five commands is the whole tool.
 
 Two things to get right:
 

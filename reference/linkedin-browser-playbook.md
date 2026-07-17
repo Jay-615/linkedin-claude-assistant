@@ -1,8 +1,15 @@
 # LinkedIn browser playbook
 
 Everything the skills in this repo learned the hard way about driving LinkedIn
-through the Claude in Chrome extension. Every rule here cost a failed run to
-find. Read this before writing or debugging any skill that touches LinkedIn.
+through the Claude in Chrome extension. Every rule here cost a failed run to find.
+
+**Read this before touching LinkedIn — for the five commands *and* for anything a
+user asks for off-script.** It is not skill-specific documentation. It's the
+general knowledge of how to read LinkedIn without getting silently truncated data,
+mis-parsed fields, or rate-limited, and it applies to any request: "who at this
+company went to my university," "which connections changed jobs," "pull these
+postings into a file." The commands are five paved paths across this terrain. The
+terrain is what's actually here.
 
 If you're a human skimming this repo to see how it works: this file is the
 interesting one. The skills are mostly orchestration. This is the knowledge.

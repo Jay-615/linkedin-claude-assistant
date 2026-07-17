@@ -37,7 +37,39 @@ and never runs on a schedule. You stay in the loop for every decision that matte
 The last three are a chain — each one needs the one above it. `/find-jobs` stands
 alone; start there, since you'll see real results in three minutes.
 
+**You don't have to memorize any of that.** Just say what you want — "find me some
+jobs," "who do I know at Nike?", "which of my contacts should I reconnect with?" —
+and Claude picks the right one. The slash commands work too, if you like typing
+less. They're a shortcut, not a syntax you have to learn.
+
 [Install below.](#install) Full detail in [Using it](#using-it).
+
+## It's not only the five commands
+
+The five commands are the paved paths. The thing that makes them work is
+[`reference/linkedin-browser-playbook.md`](reference/linkedin-browser-playbook.md)
+— a field-tested guide to driving LinkedIn through the Chrome extension without
+getting garbage data or hitting a rate limit. Claude reads it before touching
+LinkedIn, and it applies to *anything* you ask for, not just the commands.
+
+So ask for what you actually want:
+
+> Who at Lumora Commerce went to my university?
+>
+> Pull the last 20 job postings from this company's LinkedIn page into a file.
+>
+> Which of my 1st-degree connections changed jobs in the last six months?
+>
+> Make a list of every recruiter in my network who works in outdoor apparel.
+
+Claude will work out the URLs and the page structure from the playbook and write
+the results to a file. Nothing is limited to what the five commands cover.
+
+**The boundary is read-only, and it's deliberate.** This will look things up, read
+pages, and write files. It will not send connection requests, messages, posts,
+endorsements, or applications — not because it can't, but because those are the
+decisions that should have a human behind them, and because mass-actioning LinkedIn
+is how accounts get restricted. Ask it to research. Do the reaching out yourself.
 
 ---
 
