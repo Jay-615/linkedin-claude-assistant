@@ -83,12 +83,34 @@ who think they need all 400 tend to stall out and never see the payoff.
   browser-related.** Every LinkedIn quirk, extraction constraint, and failure mode
   lives there. When LinkedIn changes its UI, fix the playbook — the skills
   reference it rather than duplicating it.
-- All user data lives in `config/` (gitignored) and `jobs/` (gitignored). Nothing
-  personal is ever committed. `config/*.example.*` files use a fictional persona
-  (Sam Chen, a Senior PM in e-commerce) and are the only committed examples — never
-  put real data in them.
-- `config/connections.csv` is the most sensitive file in the repo: it holds the
-  user's private read on their own relationships. Treat it accordingly.
+- All user data lives in `config/` (gitignored) and `jobs/` (gitignored).
+  `config/*.example.*` files use a fictional persona (Sam Chen, a Senior PM in
+  e-commerce) and are the only committed examples — never put real data in them.
+- `config/connections.csv` is the most sensitive file here: it holds the user's
+  private read on their own relationships. Treat it accordingly.
+- **Never write a real person's name into a file that isn't gitignored** — not in
+  docs, not in a skill file, not in a code comment, not in a commit message. Use
+  the fictional persona instead. This is a rule about *data*, not about files:
+  `.gitignore` protects `connections.csv` perfectly and cannot do a thing about a
+  name typed into a sentence.
+
+  The pull toward real names is strong and it will pull on you. It arrives
+  disguised as rigor — you'll be documenting a real finding, and the specific real
+  name is what makes the finding credible rather than vague. **Accurate and
+  publishable diverge the moment the subject is a real person.** "One of the user's
+  mutuals" is slightly worse documentation and enormously better privacy; take that
+  trade every time. If a real name feels load-bearing, that's the signal to stop.
+
+  This is not theoretical. The sibling project this was carved out of published six
+  real colleagues' names in a commit titled "portfolio polish" — the very commit
+  meant to make it presentable to strangers. While writing *this rule*, the same
+  mistake was made twice more in under an hour.
+
+  `.githooks/pre-commit` checks staged files against the names in
+  `connections.csv` and blocks the commit. It's a backstop for lapses, not a
+  substitute for judgment — it only knows names already scraped. Activate it with
+  `git config core.hooksPath .githooks` (git config can't be committed, so each
+  clone needs it once).
 - Markdown and CSV are the storage formats, on purpose. The user can open, edit,
   and understand every file this tool writes without any special software.
 - **When writing a CSV that already exists, read its schema from its own header —

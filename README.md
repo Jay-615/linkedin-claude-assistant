@@ -157,6 +157,12 @@ last thing you'd want to leak. It never gets committed.
 The only committed examples are `config/*.example.*`, which use a fictional persona
 (Sam Chen, a Senior PM in e-commerce). No real person appears anywhere in this repo.
 
+If you clone this rather than downloading the ZIP, and you plan to commit anything
+back, run `git config core.hooksPath .githooks` once. That turns on a pre-commit
+check that blocks any commit containing a name from your `connections.csv` — a
+guard against accidentally publishing your own network. You don't need it if you
+just downloaded the ZIP, since there's no git repo to commit to.
+
 ---
 
 ## How it's built
