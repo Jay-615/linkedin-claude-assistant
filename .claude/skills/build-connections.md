@@ -196,6 +196,31 @@ Once the loop finishes (or you bail), extract every connection currently rendere
 })()
 ```
 
+**Clean the name before storing it.** LinkedIn renders names with trailing
+credentials — `Greta Lindqvist, PHR, SHRM-CP`, `Priya Natarajan, MBA`. Store the
+plain name (`Greta Lindqvist`, `Priya Natarajan`) — the degrees are noise, make the
+file harder to scan, and `/map-company-connections` matches bridge names against this
+file on the cleaned form. Strip them with this cleaner (keep a genuine `Jr.`/`III`;
+drop `, <creds>` and ` - <creds>`), applied to the scraped `name` in Step 5 and in the
+Step 6 merge (so re-runs clean names that predate this rule):
+
+```python
+import re
+NAME_SUFFIXES = {'jr','sr','ii','iii','iv','v'}
+def clean_name(n):
+    s = (n or '').strip()
+    if not s: return s
+    parts = [p.strip() for p in s.split(',')]
+    base = parts[0]
+    if len(parts) > 1 and parts[1].lower().rstrip('.') in NAME_SUFFIXES:
+        base = base + ', ' + parts[1]
+    base = re.sub(r'\s+-\s+[A-Za-z0-9./&®\-]+$', '', base).strip()
+    return base
+```
+
+The `linkedin_url` remains the unique key, so cleaning the display name never affects
+matching of existing rows.
+
 **Getting the result out.** A 250+ connection extraction is ~40 KB of JSON, and
 inline `javascript_tool` returns truncate at ~1 KB (playbook §2). Don't return it
 directly. Store it on `window.__connections`, then render it into a `<pre>` and

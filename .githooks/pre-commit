@@ -53,15 +53,17 @@ def names_from(path, cols):
 
 real = names_from('config/connections.csv', ['name'])
 real |= names_from('config/company_connections.csv', ['person_name'])
-# Bridge lists are semicolon-joined names.
+# Bridge lists are semicolon-joined names, split across the High/Medium columns
+# (bridge_connections kept too, in case an older-schema file lingers).
 if os.path.exists('config/company_connections.csv'):
     with open('config/company_connections.csv', newline='', encoding='utf-8', errors='replace') as f:
         for row in csv.DictReader(f):
-            for b in (row.get('bridge_connections') or '').split(';'):
-                b = b.strip()
-                if b:
-                    real.add(b)
-                    real.add(re.split(r',', b)[0].strip())
+            for col in ('high_bridges', 'medium_bridges', 'bridge_connections'):
+                for b in (row.get(col) or '').split(';'):
+                    b = b.strip()
+                    if b:
+                        real.add(b)
+                        real.add(re.split(r',', b)[0].strip())
 
 # Short or single-token names cause false positives ("New Person", "Dan").
 # Require a full name with a space and enough length to be distinctive.

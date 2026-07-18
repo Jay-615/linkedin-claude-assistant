@@ -90,9 +90,11 @@ screen. It's in the overlap between all of them.
 
 This tool does that pass for you. One search per company, one drill-in for each
 person whose mutuals are truncated, every bridge cross-referenced against your own
-ratings of who you actually know, out the other end as a sorted table. About two
-minutes instead of an evening, and you get the full picture rather than the seven
-people you had patience for.
+ratings of who you actually know — and out the other end, a table of just the people
+you can reach through someone you rated **High or Medium**, with those warm bridges in
+their own columns. The cold and unrated-only paths are left off, so what's left is a
+scannable "who can actually introduce me" list. About two minutes instead of an
+evening, and you get the warm paths rather than the seven people you had patience for.
 
 ### The part you'd never assemble by hand
 
@@ -115,11 +117,13 @@ person can actually do on a Tuesday. Catching up with him upgrades those three
 paths from *cold* to *warm* — and you'd never have picked him out of 400 contacts
 by memory.
 
-A caveat worth setting expectations on: your biggest bridges are often people you
-barely know. Reach and closeness aren't the same thing, and the tool will happily
-show you that the person connected to 25 people at your dream company is someone
-you can't call. That's still worth knowing — it's just not always the answer you
-were hoping for.
+A caveat worth setting expectations on: reach and closeness aren't the same thing,
+even among your warm paths. Your highest-reach bridge might be a Medium you've drifted
+from rather than a High you talk to weekly — worth knowing, just not always the answer
+you were hoping for. And because the table keeps only your High and Medium paths, a
+big-reach bridge you rated Low (or never rated) simply won't appear — their people drop
+off. If you suspect someone like that is warmer than you scored them, rate them and
+re-run; the table will surface everyone they can reach.
 
 ---
 

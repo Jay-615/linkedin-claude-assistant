@@ -40,4 +40,4 @@ The `.gitignore` keeps your real files out of git automatically.
 | `criteria.md` | Roles, locations, seniority, comp floor, job types | `/setup` |
 | `target_companies.csv` | Companies you're tracking, with priority | `/setup` |
 | `connections.csv` | Your LinkedIn 1st-degrees with High/Medium/Low ratings | `/build-connections`, rated by `/rate-connections` |
-| `company_connections.csv` | 2nd-degrees at each target company + the bridges to them | `/map-company-connections` |
+| `company_connections.csv` | 2nd-degrees at each target company you can reach via a warm (High/Medium) bridge, with those bridges named | `/map-company-connections` |
